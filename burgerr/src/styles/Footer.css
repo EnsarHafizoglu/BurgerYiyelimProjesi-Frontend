@@ -1,0 +1,60 @@
+.footer {
+  width: 100%;
+  height: 150px;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: center;
+}
+
+.socialMedia svg {
+  color: white;
+  margin: 20px;
+  font-size: 70px;
+  cursor: pointer;
+  position: relative;
+}
+
+.socialMedia svg:hover {
+  color: rgb(19, 11, 11); /* Hover'da simgenin rengini değiştirmek isterseniz */
+}
+
+.socialMedia svg::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  border: 3px solid rgb(88, 56, 56); /* Çerçevenin rengi */
+  border-radius: 50%; /* Çerçevenin yuvarlak şekli */
+  box-sizing: border-box;
+  z-index: -1;
+  opacity: 0; /* Çerçeve başlangıçta görünmez */
+  transition: opacity 0.3s ease; /* Hover olunca yavaşça görünür olacak */
+}
+
+.socialMedia svg:hover::before {
+  opacity: 1; /* Hover olduğunda çerçeve görünür olacak */
+  animation: rotate-border 2s linear infinite; /* Animasyon ekle */
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.footer p {
+  color: white;
+}
